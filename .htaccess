@@ -1,0 +1,29 @@
+# Le serveur doit suivre liens symboliques
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'url
+
+RewriteEngine on
+
+# Règles de réécriture d'url
+
+# URL des pages
+RewriteRule ^$ index.php?class=AccueilController&method=accueil
+RewriteRule ^accueil$ index.php?class=AccueilController&method=accueil
+RewriteRule ^book-list$ index.php?class=BookController&method=bookList
+RewriteRule ^form-add-book$ index.php?class=BookController&method=formAddBook
+RewriteRule ^form-edit-book/([a-zA-Z0-9=_]+)$ index.php?class=BookController&method=formEditBook&bookIsbn=$1
+RewriteRule ^adherent-list$ index.php?class=AdherentController&method=adherentList
+RewriteRule ^form-add-adherent$ index.php?class=AdherentController&method=formAddAdherent
+RewriteRule ^emprunt-list$ index.php?class=EmpruntController&method=empruntList
+RewriteRule ^form-create-emprunt$ index.php?class=EmpruntController&method=formCreateEmprunt
+
+# URL des actions
+
+RewriteRule ^add-book-action$ index.php?class=BookController&method=addBook
+RewriteRule ^edit-book-action$ index.php?class=BookController&method=editBook
+RewriteRule ^remove-book-action/([a-zA-Z0-9=_]+)$ index.php?class=BookController&method=removeBook&bookIsbn=$1
+RewriteRule ^add-adherent$ index.php?class=AdherentController&method=addAdherent
+RewriteRule ^remove-adherent-action/([a-zA-Z0-9=_]+)$ index.php?class=AdherentController&method=removeAdherent&adherentId=$1
+RewriteRule ^create-emprunt-action$ index.php?class=EmpruntController&method=createEmprunt
+RewriteRule ^remove-emprunt-action$ index.php?class=EmpruntController&method=removeEmprunt
